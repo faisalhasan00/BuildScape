@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { Menu, X, Phone } from 'lucide-react';
-import { siteConfig } from '../../data/siteData';
+import { useCms } from '../../context/CmsContext';
+import { Menu, X, Phone, FileDown } from 'lucide-react';
 
 export const Navbar = ({ onOpenComingSoon }) => {
+  const { cmsData } = useCms();
+  const siteConfig = cmsData.siteConfig || {};
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('home');
@@ -15,6 +17,19 @@ export const Navbar = ({ onOpenComingSoon }) => {
       } else {
         setIsScrolled(false);
       }
+
+      // Auto update active section based on scroll position
+      const sections = ['home', 'about', 'gallery', 'capabilities', 'typologies', 'workflow', 'estimator', 'standards', 'why-buildscape', 'testimonials', 'contact'];
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveNav(sectionId);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -22,50 +37,52 @@ export const Navbar = ({ onOpenComingSoon }) => {
   }, []);
 
   const navLinks = [
-    { id: 'home', label: 'Home', isHome: true },
-    { id: 'about', label: 'About Us', pageName: 'About Us' },
-    { id: 'capabilities', label: 'Capabilities', pageName: 'Capabilities & Services' },
-    { id: 'why-buildscape', label: 'Why Buildscape', pageName: 'Why Buildscape' },
-    { id: 'contact', label: 'Contact', pageName: 'Contact & Office Location' },
+    { id: 'about', label: 'About', target: 'about' },
+    { id: 'capabilities', label: 'Services', target: 'capabilities' },
+    { id: 'gallery', label: 'Portfolio', target: 'gallery' },
+    { id: 'estimator', label: 'Cost Estimator', target: 'estimator' },
+    { id: 'contact', label: 'Contact', target: 'contact' }
   ];
 
-  const handleNavClick = (e, link) => {
+  const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setIsMobileOpen(false);
+    setActiveNav(targetId);
 
-    if (link.isHome) {
-      setActiveNav('home');
+    if (targetId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      setActiveNav(link.id);
-      if (onOpenComingSoon) {
-        onOpenComingSoon(`${link.pageName} (Under Construction)`);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
+
+  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || "040-45524579";
 
   return (
     <header className={`custom-navbar-header ${isScrolled ? 'header-scrolled' : ''}`}>
       <div className="navbar-inner-container">
         {/* Brand Logo */}
         <div className="navbar-logo-area">
-          <a href="#home" onClick={(e) => handleNavClick(e, { isHome: true })}>
+          <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>
             <Logo 
               variant={isScrolled ? 'dark' : 'light'} 
-              height={isScrolled ? 46 : 56} 
+              height={isScrolled ? 48 : 58} 
             />
           </a>
         </div>
 
-        {/* Desktop Navigation Menu */}
+        {/* Desktop Navigation Menu (Streamlined Luxury Architecture Links) */}
         <nav className="desktop-nav-menu">
           <ul className="nav-links-list">
             {navLinks.map((link) => (
               <li key={link.id} className="nav-link-item">
                 <a
-                  href={`#${link.id}`}
+                  href={`#${link.target}`}
                   className={`nav-link-anchor ${activeNav === link.id ? 'active' : ''}`}
-                  onClick={(e) => handleNavClick(e, link)}
+                  onClick={(e) => handleNavClick(e, link.target)}
                 >
                   {link.label}
                   {activeNav === link.id && <span className="active-indicator-bar" />}
@@ -75,26 +92,36 @@ export const Navbar = ({ onOpenComingSoon }) => {
           </ul>
         </nav>
 
-        {/* Action Button & Phone Contact */}
+        {/* Action Buttons: Brochure & Phone */}
         <div className="navbar-actions">
-          <a 
-            href={`tel:${siteConfig.phoneNumbers[1]}`} 
-            className={`navbar-phone-btn ${isScrolled ? 'scrolled-phone-btn' : ''}`}
+          <button 
+            className={`navbar-brochure-btn ${isScrolled ? 'scrolled-btn' : ''}`}
+            onClick={() => onOpenComingSoon && onOpenComingSoon('Brochure PDF Download')}
+            title="Download Corporate Architectural Brochure"
           >
-            <Phone size={14} className="phone-icon" />
-            <span>{siteConfig.phoneNumbers[1]}</span>
+            <FileDown size={14} />
+            <span>Brochure</span>
+          </button>
+
+          <a 
+            href={`tel:${primaryPhone}`} 
+            className={`navbar-phone-btn ${isScrolled ? 'scrolled-phone-btn' : ''}`}
+            title={`Call Buildscape: ${primaryPhone}`}
+          >
+            <Phone size={13} className="phone-icon" />
+            <span className="d-none d-lg-inline">{primaryPhone}</span>
           </a>
 
           {/* Mobile Menu Toggler */}
           <button 
             className="mobile-toggler-btn"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            aria-label="Toggle Mobile Navigation Menu"
+            aria-label="Toggle Navigation Menu"
           >
             {isMobileOpen ? (
-              <X size={26} color={isScrolled ? '#111111' : '#ffffff'} />
+              <X size={24} color={isScrolled ? '#111111' : '#ffffff'} />
             ) : (
-              <Menu size={26} color={isScrolled ? '#111111' : '#ffffff'} />
+              <Menu size={24} color={isScrolled ? '#111111' : '#ffffff'} />
             )}
           </button>
         </div>
@@ -106,9 +133,9 @@ export const Navbar = ({ onOpenComingSoon }) => {
           {navLinks.map((link) => (
             <li key={link.id} className="mobile-nav-item">
               <a
-                href={`#${link.id}`}
+                href={`#${link.target}`}
                 className={`mobile-nav-anchor ${activeNav === link.id ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, link)}
+                onClick={(e) => handleNavClick(e, link.target)}
               >
                 {link.label}
               </a>
@@ -117,8 +144,18 @@ export const Navbar = ({ onOpenComingSoon }) => {
         </ul>
 
         <div className="mobile-drawer-footer">
-          <a href={`tel:${siteConfig.phoneNumbers[1]}`} className="mobile-call-action-btn">
-            <Phone size={16} /> Call {siteConfig.phoneNumbers[1]}
+          <button 
+            className="mobile-brochure-action-btn mb-2 w-100"
+            onClick={() => {
+              setIsMobileOpen(false);
+              onOpenComingSoon && onOpenComingSoon('Brochure PDF Download');
+            }}
+          >
+            <FileDown size={16} /> Download Corporate Brochure
+          </button>
+          
+          <a href={`tel:${primaryPhone}`} className="mobile-call-action-btn">
+            <Phone size={16} /> Call {primaryPhone}
           </a>
         </div>
       </div>
