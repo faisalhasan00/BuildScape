@@ -7,7 +7,6 @@ import { ProjectsGallerySection } from './components/Gallery/ProjectsGallerySect
 import { CapabilitiesSection } from './components/Capabilities/CapabilitiesSection';
 import { TypologiesSection } from './components/Typologies/TypologiesSection';
 import { WorkflowSection } from './components/Workflow/WorkflowSection';
-import { ProjectEstimatorSection } from './components/Calculator/ProjectEstimatorSection';
 import { DesignMatrixSection } from './components/DesignMatrix/DesignMatrixSection';
 import { WhyUsSection } from './components/WhyUs/WhyUsSection';
 import { TestimonialsSection } from './components/Testimonials/TestimonialsSection';
@@ -65,10 +64,7 @@ function MainApp() {
         {/* 6. 6-Stage Delivery Workflow Framework */}
         <WorkflowSection onOpenComingSoon={handleOpenComingSoon} />
 
-        {/* 8. Interactive Turnkey Construction Cost Estimator */}
-        <ProjectEstimatorSection />
-
-        {/* 9. Design Matrix, Operational Standards & Technical Deliverables */}
+        {/* 7. Design Matrix, Operational Standards & Technical Deliverables */}
         <DesignMatrixSection onOpenComingSoon={handleOpenComingSoon} />
 
         {/* 10. Why Buildscape & Founder's Statement */}
