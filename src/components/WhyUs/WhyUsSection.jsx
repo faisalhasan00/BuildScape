@@ -40,8 +40,11 @@ export const WhyUsSection = () => {
   };
 
   return (
-    <section id="why-buildscape" className="why-soudha section-padding">
-      <div className="container">
+    <section id="why-buildscape" className="why-soudha section-padding position-relative overflow-hidden">
+      {/* Background Architectural Logo Watermark */}
+      <div className="section-bg-watermark watermark-left" aria-hidden="true"></div>
+
+      <div className="container position-relative" style={{ zIndex: 1 }}>
         
         {/* Section Header */}
         <div className="row align-items-center mb-4">

@@ -18,8 +18,11 @@ export const WorkflowSection = ({ onOpenComingSoon }) => {
   };
 
   return (
-    <section id="workflow" className="workflow-section section-padding">
-      <div className="container">
+    <section id="workflow" className="workflow-section section-padding position-relative overflow-hidden">
+      {/* Background Architectural Logo Watermark */}
+      <div className="section-bg-watermark watermark-dark" aria-hidden="true"></div>
+
+      <div className="container position-relative" style={{ zIndex: 1 }}>
         
         {/* Section Header */}
         <div className="row align-items-center mb-4">

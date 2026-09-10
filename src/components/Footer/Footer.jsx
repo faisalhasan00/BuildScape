@@ -8,8 +8,11 @@ export const Footer = ({ onOpenComingSoon }) => {
   const siteConfig = cmsData.siteConfig || {};
 
   return (
-    <footer id="contact" className="main-footer dark">
-      <div className="container">
+    <footer id="contact" className="main-footer dark position-relative overflow-hidden">
+      {/* Background Architectural Logo Watermark */}
+      <div className="section-bg-watermark watermark-footer" aria-hidden="true"></div>
+
+      <div className="container position-relative" style={{ zIndex: 1 }}>
         <div className="row">
           <div className="col-lg-3 col-md-6 mb-4">
             <Logo variant="light" height={68} />

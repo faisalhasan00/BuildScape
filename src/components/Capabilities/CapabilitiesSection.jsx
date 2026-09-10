@@ -20,8 +20,11 @@ export const CapabilitiesSection = ({ onOpenComingSoon }) => {
   const ActivePillarIcon = activePillar ? (pillarIcons[activePillar.pillar] || Compass) : Compass;
 
   return (
-    <section id="capabilities" className="capabilities-section section-padding">
-      <div className="container">
+    <section id="capabilities" className="capabilities-section section-padding position-relative overflow-hidden">
+      {/* Background Architectural Logo Watermark Pattern */}
+      <div className="section-bg-watermark" aria-hidden="true"></div>
+
+      <div className="container position-relative" style={{ zIndex: 1 }}>
         
         {/* Section Header with Tab Switcher */}
         <div className="row align-items-center mb-4">

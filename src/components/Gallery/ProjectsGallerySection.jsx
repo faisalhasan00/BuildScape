@@ -105,8 +105,11 @@ export const ProjectsGallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="gallery-section">
-      <div className="gallery-container">
+    <section id="gallery" className="gallery-section position-relative overflow-hidden">
+      {/* Background Architectural Logo Watermark Pattern */}
+      <div className="section-bg-watermark watermark-dark" aria-hidden="true"></div>
+
+      <div className="gallery-container position-relative" style={{ zIndex: 1 }}>
         
         {/* Section Header */}
         <div className="section-header text-center">

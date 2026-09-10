@@ -8,8 +8,11 @@ export const AboutSection = ({ onOpenComingSoon }) => {
   const [activeVmTab, setActiveVmTab] = useState('vision'); // 'vision' | 'mission'
 
   return (
-    <section id="about" className="about section-padding">
-      <div className="container">
+    <section id="about" className="about section-padding position-relative overflow-hidden">
+      {/* Background Architectural Logo Watermark */}
+      <div className="section-bg-watermark" aria-hidden="true"></div>
+
+      <div className="container position-relative" style={{ zIndex: 1 }}>
         {/* Narrative & Leadership */}
         <div className="row mb-4 align-items-center">
           <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
