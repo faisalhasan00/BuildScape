@@ -294,25 +294,6 @@ export const ProjectsGallerySection = () => {
             )}
           </div>
         )}
-
-        {/* Bottom CTA Banner */}
-        <div className="gallery-cta-banner">
-          <div className="gallery-cta-info">
-            <h4 className="cta-banner-title">Need custom architectural blueprints or turnkey general contracting?</h4>
-            <p className="cta-banner-sub">
-              From private residential villas to multi-storey corporate towers, our unified team handles complete municipal approvals, 3D BIM, structural peer-reviews, and turnkey construction.
-            </p>
-          </div>
-          <div className="gallery-cta-actions">
-            <a href="#estimator" className="gallery-cta-outline-btn">
-              <span>Calculate Project Cost</span>
-            </a>
-            <a href="#contact" className="gallery-cta-btn">
-              <span>Commission a Project</span>
-              <ChevronRight size={16} />
-            </a>
-          </div>
-        </div>
       </div>
 
       {/* Elevated Lightbox Quick-View Modal */}
