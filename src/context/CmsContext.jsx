@@ -77,7 +77,8 @@ const getInitialCmsData = () => {
     admins: defaultAdmins,
     projectsGallery: defaultData.projectsGallery,
     technicalBlueprints: defaultData.technicalBlueprints,
-    estimatorConfig: defaultData.estimatorConfig
+    estimatorConfig: defaultData.estimatorConfig,
+    blogArticles: defaultData.blogArticles || []
   };
 
   try {
@@ -98,10 +99,22 @@ const getInitialCmsData = () => {
         }
       }
 
+      let normBlog = defaultData.blogArticles;
+      if (parsed.blogArticles && Array.isArray(parsed.blogArticles) && parsed.blogArticles.length > 0) {
+        normBlog = parsed.blogArticles.map((art, idx) => {
+          let img = art.image;
+          if (!img || img.includes('architecture_luxury_villa') || img.includes('commercial_office_complex') || img.includes('interior_penthouse_living')) {
+            img = defaultData.blogArticles[idx % defaultData.blogArticles.length]?.image || '/assets/images/hero1.jpg';
+          }
+          return { ...art, image: img };
+        });
+      }
+
       return {
         ...defaults,
         ...parsed,
         projectsGallery: normGallery,
+        blogArticles: normBlog,
         technicalBlueprints: (parsed.technicalBlueprints && parsed.technicalBlueprints.length > 0)
           ? parsed.technicalBlueprints
           : defaultData.technicalBlueprints,
@@ -450,6 +463,39 @@ export const CmsProvider = ({ children }) => {
     showToast('Inquiry removed from inbox.');
   };
 
+  const addBlogArticle = (article) => {
+    const newArticle = {
+      ...article,
+      id: Date.now(),
+      date: article.date || new Date().toISOString().slice(0, 10),
+      status: article.status || 'Published'
+    };
+    setCmsData((prev) => ({
+      ...prev,
+      blogArticles: [newArticle, ...(prev.blogArticles || [])]
+    }));
+    showToast(`Article "${newArticle.title}" published successfully!`);
+    return newArticle;
+  };
+
+  const updateBlogArticle = (id, updatedFields) => {
+    setCmsData((prev) => ({
+      ...prev,
+      blogArticles: (prev.blogArticles || []).map((art) =>
+        art.id === id ? { ...art, ...updatedFields } : art
+      )
+    }));
+    showToast('Article updated successfully.');
+  };
+
+  const deleteBlogArticle = (id) => {
+    setCmsData((prev) => ({
+      ...prev,
+      blogArticles: (prev.blogArticles || []).filter((art) => art.id !== id)
+    }));
+    showToast('Article deleted from blog.');
+  };
+
   const resetToFactoryDefaults = () => {
     const resetData = {
       siteConfig: defaultData.siteConfig,
@@ -468,7 +514,8 @@ export const CmsProvider = ({ children }) => {
       admins: defaultAdmins,
       projectsGallery: defaultData.projectsGallery,
       technicalBlueprints: defaultData.technicalBlueprints,
-      estimatorConfig: defaultData.estimatorConfig
+      estimatorConfig: defaultData.estimatorConfig,
+      blogArticles: defaultData.blogArticles
     };
     setCmsData(resetData);
     localStorage.setItem(CMS_STORAGE_KEY, JSON.stringify(resetData));
@@ -535,6 +582,9 @@ export const CmsProvider = ({ children }) => {
         addGalleryItem,
         updateGalleryItem,
         deleteGalleryItem,
+        addBlogArticle,
+        updateBlogArticle,
+        deleteBlogArticle,
         data: cmsData,
         addInquiry,
         updateInquiryStatus,

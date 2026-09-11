@@ -597,3 +597,107 @@ export const testimonials = [
   }
 ];
 
+// --- ARCHITECTURAL BLOG & ARTICLES ---
+export const blogArticles = [
+  {
+    id: "vastu-modern-architecture",
+    title: "Integrating Vastu Principles with Contemporary Luxury Architecture",
+    slug: "vastu-modern-architecture",
+    category: "Architecture",
+    readTime: "5 Min Read",
+    date: "Sep 05, 2026",
+    author: "Mohammad Khaja Osman",
+    authorRole: "Principal Architect",
+    image: "/assets/images/hero1.jpg",
+    excerpt: "How to harmonize traditional directional energy grids with open-concept double-height living, expansive glass facades, and modern structural engineering.",
+    featured: true,
+    content: [
+      {
+        heading: "The Evolution of Vastu in Contemporary Living",
+        text: "For decades, traditional home builders believed adhering to Vastu Shastra meant sacrificing modern open-floor plans and clean minimalist aesthetics. At Buildscape, we integrate directional orientation—such as the Ishanya (North-East) water axis and Agneya (South-East) utility grid—directly into the structural BIM model during conceptual planning."
+      },
+      {
+        heading: "Optimizing Natural Daylight & Microclimate",
+        text: "By strategically placing floor-to-ceiling double-glazed apertures along the North and East elevations, we maximize ambient natural daylight without excessive solar heat gain, significantly reducing artificial lighting requirements and air conditioning loads."
+      },
+      {
+        heading: "Key Takeaways for Homeowners",
+        text: "1. Prioritize master suite placement in the South-West (Nairutya) for stability.\n2. Ensure kitchen placement in the South-East (Agneya) with proper exhaust shafts.\n3. Keep the central zone (Brahmasthan) uncluttered to allow light and ventilation to flow freely."
+      }
+    ],
+    tags: ["Vastu Shastra", "Luxury Villas", "Sustainable Design"]
+  },
+  {
+    id: "turnkey-epc-vs-item-rate",
+    title: "Turnkey EPC vs. Item-Rate Contracting: The True Cost & Quality Comparison",
+    slug: "turnkey-epc-vs-item-rate",
+    category: "Engineering",
+    readTime: "6 Min Read",
+    date: "Aug 28, 2026",
+    author: "Syed Wajeed",
+    authorRole: "Senior Project Engineer",
+    image: "/assets/images/capability_turnkey.jpg",
+    excerpt: "A deep dive into structural accountability, timeline predictability, and why fragmented subcontractor models lead to 20-30% cost overruns.",
+    featured: false,
+    content: [
+      {
+        heading: "The Fragmented Contractor Dilemma",
+        text: "When homeowners hire separate architects, structural draftsmen, civil contractors, and electrical subcontractors, finger-pointing becomes inevitable whenever discrepancies arise on site. The civil contractor blames the drawings, while the architect blames on-site execution."
+      },
+      {
+        heading: "The Buildscape Single-Point Advantage",
+        text: "Under an integrated Turnkey EPC (Engineering, Procurement, and Construction) model, Buildscape assumes 100% legal, structural, and financial accountability from soil excavation to final key handover. Milestone BOQ billing guarantees no hidden escalation costs."
+      }
+    ],
+    tags: ["Turnkey Construction", "Project Management", "BOQ & Costing"]
+  },
+  {
+    id: "rcc-foundation-soil-testing",
+    title: "RCC Foundation Engineering: Soil Testing & Structural Rigor in Telangana",
+    slug: "rcc-foundation-soil-testing",
+    category: "Engineering",
+    readTime: "4 Min Read",
+    date: "Aug 15, 2026",
+    author: "Mohammad Khaja Osman",
+    authorRole: "Structural Consultant",
+    image: "/assets/images/capability_construction.jpg",
+    excerpt: "Why Black Cotton and hard rock strata in Shadnagar and Ranga Reddy require bespoke footing schedules and seismic reinforcement.",
+    featured: false,
+    content: [
+      {
+        heading: "Understanding Regional Soil Strata",
+        text: "The soil profile across Telangana varies dramatically from expandable black cotton soil requiring under-reamed pile foundations to dense granite sheet rock needing specialized isolated footings. Conducting bore log tests before finalizing structural schedules is non-negotiable."
+      },
+      {
+        heading: "M25 & M30 Concrete Grade Benchmarks",
+        text: "Every Buildscape RCC casting utilizes automated batching, ultrasonic rebar scans, and strict cube compression testing at 7, 14, and 28-day intervals, ensuring 100% compliance with IS 456 standards."
+      }
+    ],
+    tags: ["Structural Engineering", "RCC Casting", "Quality Control"]
+  },
+  {
+    id: "double-height-interior-lighting",
+    title: "Double-Height Living & Concealed Lighting: Interior Architecture Trends for 2026",
+    slug: "double-height-interior-lighting",
+    category: "Interiors",
+    readTime: "5 Min Read",
+    date: "Jul 30, 2026",
+    author: "Interior Design Desk",
+    authorRole: "Buildscape Design Studio",
+    image: "/assets/images/capability_interior_design.jpg",
+    excerpt: "Transforming voluminous living spaces with Italian Statuario marble, acoustic timber slatting, and smart architectural ambient lighting layers.",
+    featured: false,
+    content: [
+      {
+        heading: "Mastering Scale and Vertical Volume",
+        text: "Double-height living rooms can feel cavernous and echoey if not balanced with textured acoustic wall panelling, custom fluted timber columns, and curated floor-to-ceiling drapery. We use warm 3000K indirect LED profiles to wash stone feature walls softly."
+      },
+      {
+        heading: "Material Harmonization",
+        text: "Combining high-gloss Italian marble with brushed brass metal accents and matte walnut veneer creates a timeless tactile luxury that looks stunning in daytime and night."
+      }
+    ],
+    tags: ["Interior Architecture", "Luxury Living", "Lighting Design"]
+  }
+];
+

@@ -9,6 +9,7 @@ import { TypologiesTab } from './Tabs/TypologiesTab';
 import { WorkflowTab } from './Tabs/WorkflowTab';
 import { ProjectsTab } from './Tabs/ProjectsTab';
 import { TestimonialsTab } from './Tabs/TestimonialsTab';
+import { BlogTab } from './Tabs/BlogTab';
 import { InquiriesTab } from './Tabs/InquiriesTab';
 import { AdminsTab } from './Tabs/AdminsTab';
 import { SettingsTab } from './Tabs/SettingsTab';
@@ -31,7 +32,8 @@ import {
   Menu,
   Bell,
   Search,
-  FolderKanban
+  FolderKanban,
+  BookOpen
 } from 'lucide-react';
 import { Logo } from '../Navbar/Logo';
 
@@ -45,11 +47,13 @@ export const AdminDashboardModal = () => {
   const adminsList = cmsData.admins || [];
   const inquiriesList = cmsData.inquiries || [];
   const galleryItems = (cmsData.projectsGallery && cmsData.projectsGallery.items) || [];
+  const blogList = cmsData.blogArticles || [];
   const newInquiries = inquiriesList.filter((i) => i.status === 'New').length;
 
   const tabTitles = {
     overview: 'Executive Analytics & KPI Overview',
     projects: 'Projects & Portfolio Showcase CMS',
+    blog: 'Architectural Blog & Articles CMS',
     profile: 'Company Profile & Official Statements',
     hero: 'Hero Carousel Showcase Slides',
     pillars: 'Core Integrated Solution Pillars',
@@ -113,6 +117,16 @@ export const AdminDashboardModal = () => {
                   <FolderKanban size={17} />
                   {!isSidebarCollapsed && <span>Projects Portfolio</span>}
                   {!isSidebarCollapsed && <span className="nav-badge text-gold">{galleryItems.length}</span>}
+                </button>
+
+                <button
+                  className={`admin-nav-btn ${activeTab === 'blog' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('blog')}
+                  title="Architectural Blog & Articles"
+                >
+                  <BookOpen size={17} />
+                  {!isSidebarCollapsed && <span>Blog & Articles</span>}
+                  {!isSidebarCollapsed && <span className="nav-badge text-gold">{blogList.length}</span>}
                 </button>
 
                 <button
@@ -257,6 +271,7 @@ export const AdminDashboardModal = () => {
               <div className="admin-body-content">
                 {activeTab === 'overview' && <OverviewTab setActiveTab={setActiveTab} />}
                 {activeTab === 'projects' && <ProjectsTab />}
+                {activeTab === 'blog' && <BlogTab />}
                 {activeTab === 'profile' && <ProfileTab />}
                 {activeTab === 'hero' && <HeroTab />}
                 {activeTab === 'pillars' && <PillarsTab />}

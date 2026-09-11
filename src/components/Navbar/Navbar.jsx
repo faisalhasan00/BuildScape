@@ -19,7 +19,7 @@ export const Navbar = ({ onOpenComingSoon }) => {
       }
 
       // Auto update active section based on scroll position
-      const sections = ['home', 'about', 'gallery', 'capabilities', 'typologies', 'workflow', 'standards', 'why-buildscape', 'testimonials', 'contact'];
+      const sections = ['home', 'about', 'gallery', 'capabilities', 'typologies', 'workflow', 'standards', 'why-buildscape', 'blog', 'testimonials', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -40,6 +40,7 @@ export const Navbar = ({ onOpenComingSoon }) => {
     { id: 'about', label: 'About', target: 'about' },
     { id: 'capabilities', label: 'Services', target: 'capabilities' },
     { id: 'gallery', label: 'Portfolio', target: 'gallery' },
+    { id: 'blog', label: 'Blog', target: 'blog' },
     { id: 'contact', label: 'Contact', target: 'contact' }
   ];
 

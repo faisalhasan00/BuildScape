@@ -9,6 +9,7 @@ import { TypologiesSection } from './components/Typologies/TypologiesSection';
 import { WorkflowSection } from './components/Workflow/WorkflowSection';
 import { DesignMatrixSection } from './components/DesignMatrix/DesignMatrixSection';
 import { WhyUsSection } from './components/WhyUs/WhyUsSection';
+import { BlogSection } from './components/Blog/BlogSection';
 import { TestimonialsSection } from './components/Testimonials/TestimonialsSection';
 import { Footer } from './components/Footer/Footer';
 import { ComingSoonModal } from './components/ComingSoon/ComingSoonModal';
@@ -70,10 +71,13 @@ function MainApp() {
         {/* 10. Why Buildscape & Founder's Statement */}
         <WhyUsSection />
 
-        {/* 11. Client Testimonials & Endorsements */}
+        {/* 11. Architectural Journal & Blog Articles */}
+        <BlogSection />
+
+        {/* 12. Client Testimonials & Endorsements */}
         <TestimonialsSection onOpenComingSoon={handleOpenComingSoon} />
 
-        {/* 12. Footer & Office Maps */}
+        {/* 13. Footer & Office Maps */}
         <Footer onOpenComingSoon={handleOpenComingSoon} />
       </div>
 
