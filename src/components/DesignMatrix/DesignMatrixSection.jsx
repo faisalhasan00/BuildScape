@@ -6,7 +6,6 @@ import {
   ShieldCheck, 
   Compass, 
   Wind, 
-  Sparkles, 
   Layers, 
   Globe, 
   FileCheck, 
@@ -21,7 +20,6 @@ const iconMap = {
   ShieldCheck,
   Compass,
   Wind,
-  Sparkles,
   Layers,
   Globe
 };
@@ -55,7 +53,7 @@ export const DesignMatrixSection = ({ onOpenComingSoon }) => {
                 className={`standards-tab-btn ${activeTab === 'philosophy' ? 'active' : ''}`}
                 onClick={() => setActiveTab('philosophy')}
               >
-                <Sparkles size={14} />
+                <Compass size={14} />
                 <span>Philosophy</span>
               </button>
               <button
@@ -99,7 +97,7 @@ export const DesignMatrixSection = ({ onOpenComingSoon }) => {
             {/* 8 Embedded Design Considerations */}
             <div className="considerations-grid">
               {designMatrix.considerations && designMatrix.considerations.map((c, idx) => {
-                const IconComp = iconMap[c.icon] || Sparkles;
+                const IconComp = iconMap[c.icon] || Compass;
                 return (
                   <div key={idx} className="consideration-card">
                     <div className="consideration-icon">

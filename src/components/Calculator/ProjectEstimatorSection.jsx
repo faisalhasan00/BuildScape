@@ -3,7 +3,6 @@ import { useCms } from '../../context/CmsContext';
 import * as defaultData from '../../data/siteData';
 import { 
   Calculator, 
-  Sparkles, 
   ArrowRight, 
   Check, 
   Building2, 

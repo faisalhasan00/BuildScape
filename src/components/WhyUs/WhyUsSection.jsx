@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { WhyUsCard } from './WhyUsCard';
 import { useCms } from '../../context/CmsContext';
-import { Quote, ShieldCheck, Cpu, Sparkles, LayoutGrid, ChevronLeft, ChevronRight, Rows } from 'lucide-react';
+import { Quote, ShieldCheck, Cpu, Layers, LayoutGrid, ChevronLeft, ChevronRight, Rows } from 'lucide-react';
 
 export const WhyUsSection = () => {
   const { cmsData } = useCms();
@@ -85,7 +85,7 @@ export const WhyUsSection = () => {
                 className={`standards-tab-btn ${activeCategory === 'craft' ? 'active' : ''}`}
                 onClick={() => handleCategoryChange('craft')}
               >
-                <Sparkles size={14} />
+                <Layers size={14} />
                 <span>3D & Interiors</span>
               </button>
             </div>

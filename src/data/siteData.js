@@ -305,7 +305,7 @@ export const designMatrix = {
     { title: "Structural Safety & Longevity", icon: "ShieldCheck" },
     { title: "Vastu Principles (When Required)", icon: "Compass" },
     { title: "Passive Natural Ventilation", icon: "Wind" },
-    { title: "Daylight Maximization", icon: "Sparkles" },
+    { title: "Daylight Maximization", icon: "Sun" },
     { title: "Material Efficiency", icon: "Layers" },
     { title: "Contemporary Global Trends", icon: "Globe" }
   ]
@@ -551,7 +551,7 @@ export const whyUsItems = [
   },
   {
     id: 9,
-    icon: "Sparkles",
+    icon: "TrendingUp",
     title: "Value Engineering & Space Optimization",
     description: "Smart architectural design that maximizes usable floor area, natural daylight, and passive cross-ventilation while curbing material waste."
   },

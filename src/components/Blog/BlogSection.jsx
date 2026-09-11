@@ -1,14 +1,22 @@
 import React, { useState, useMemo } from 'react';
 import { useCms } from '../../context/CmsContext';
 import { BlogReaderModal } from './BlogReaderModal';
-import { Calendar, Clock, ArrowRight, BookOpen, Sparkles, Filter, ChevronRight, User, Layers } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, BookOpen, Filter, ChevronRight, User, Layers } from 'lucide-react';
 
-export const BlogSection = () => {
+export const BlogSection = ({ onReadArticle }) => {
   const { data } = useCms();
   const articles = data?.blogArticles || [];
   
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedArticle, setSelectedArticle] = useState(null);
+
+  const handleSelectArticle = (art) => {
+    if (onReadArticle) {
+      onReadArticle(art);
+    } else {
+      setSelectedArticle(art);
+    }
+  };
 
   // Extract unique categories
   const categories = useMemo(() => {
@@ -80,7 +88,7 @@ export const BlogSection = () => {
 
         {/* Featured Spotlight Article (Shown in 'All' view) */}
         {activeCategory === 'All' && featuredArticle && (
-          <div className="blog-spotlight-card mb-5" onClick={() => setSelectedArticle(featuredArticle)}>
+          <div className="blog-spotlight-card mb-5" onClick={() => handleSelectArticle(featuredArticle)}>
             <div className="row g-0 align-items-center">
               <div className="col-lg-7 col-md-12">
                 <div className="blog-spotlight-img-wrapper">
@@ -93,7 +101,7 @@ export const BlogSection = () => {
                   <div className="blog-spotlight-overlay"></div>
                   <div className="blog-spotlight-badges">
                     <span className="blog-badge-featured">
-                      <Sparkles size={13} className="me-1" /> Featured Spotlight
+                      Featured Spotlight
                     </span>
                     <span className="blog-badge-category">
                       {featuredArticle.category}
@@ -135,7 +143,13 @@ export const BlogSection = () => {
                       </div>
                     </div>
 
-                    <button className="blog-read-btn">
+                    <button 
+                      className="blog-read-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleSelectArticle(featuredArticle);
+                      }}
+                    >
                       <span>Read Article</span>
                       <ArrowRight size={14} className="ms-1" />
                     </button>
@@ -152,7 +166,7 @@ export const BlogSection = () => {
             <div key={article.id} className="col-lg-4 col-md-6 mb-4">
               <div 
                 className="blog-grid-card h-100"
-                onClick={() => setSelectedArticle(article)}
+                onClick={() => handleSelectArticle(article)}
               >
                 <div className="blog-card-img-wrapper">
                   <img

@@ -3,7 +3,7 @@ import { Logo } from './Logo';
 import { useCms } from '../../context/CmsContext';
 import { Menu, X, Phone, FileDown } from 'lucide-react';
 
-export const Navbar = ({ onOpenComingSoon }) => {
+export const Navbar = ({ onOpenComingSoon, onNavigate }) => {
   const { cmsData } = useCms();
   const siteConfig = cmsData.siteConfig || {};
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,6 +48,11 @@ export const Navbar = ({ onOpenComingSoon }) => {
     e.preventDefault();
     setIsMobileOpen(false);
     setActiveNav(targetId);
+
+    if (onNavigate) {
+      onNavigate(targetId);
+      return;
+    }
 
     if (targetId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });

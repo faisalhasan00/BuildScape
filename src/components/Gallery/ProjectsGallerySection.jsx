@@ -6,7 +6,6 @@ import {
   User, 
   Calendar, 
   ArrowUpRight, 
-  Sparkles, 
   ChevronRight, 
   ChevronLeft, 
   Eye, 
@@ -114,7 +113,6 @@ export const ProjectsGallerySection = () => {
         {/* Section Header */}
         <div className="section-header text-center">
           <span className="section-badge">
-            <Sparkles size={14} className="badge-icon" />
             Curated Portfolio & Case Studies
           </span>
           <h2 className="section-title">

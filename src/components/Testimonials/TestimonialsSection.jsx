@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useCms } from '../../context/CmsContext';
-import { Star, ChevronLeft, ChevronRight, Play, X, CheckCircle, Quote, Sparkles, Video } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Play, X, CheckCircle, Quote, Video } from 'lucide-react';
 
 const videoStories = [
   {
@@ -133,7 +133,7 @@ export const TestimonialsSection = ({ onOpenComingSoon }) => {
         {/* Section Header */}
         <div className="section-header text-center mb-5">
           <div className="section-badge">
-            <Sparkles size={14} className="badge-icon" /> CLIENT ENDORSEMENTS
+            CLIENT ENDORSEMENTS
           </div>
           <h2 className="section-title">
             Real Stories, <span>Real Trust</span>

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { X, Upload, Image as ImageIcon, Check, Sparkles, Folder, Plus, Link as LinkIcon } from 'lucide-react';
+import { X, Upload, Image as ImageIcon, Check, Folder, Plus, Link as LinkIcon } from 'lucide-react';
 import { optimizeImageFile } from '../../utils/imageOptimizer';
 
 export const websiteMediaLibrary = [

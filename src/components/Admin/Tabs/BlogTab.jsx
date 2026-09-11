@@ -14,7 +14,6 @@ import {
   Clock, 
   User, 
   Tag, 
-  Sparkles,
   CheckCircle,
   FileText,
   Upload,
@@ -329,8 +328,7 @@ export const BlogTab = () => {
                   onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
                   style={{ cursor: 'pointer' }}
                 />
-                <label htmlFor="isFeaturedArticle" className="form-check-label text-white d-flex align-items-center gap-1" style={{ fontSize: 13, cursor: 'pointer' }}>
-                  <Sparkles size={14} className="text-warning" />
+                <label htmlFor="isFeaturedArticle" className="form-check-label text-white" style={{ fontSize: 13, cursor: 'pointer' }}>
                   <span>Feature as Spotlight</span>
                 </label>
               </div>
@@ -401,8 +399,7 @@ export const BlogTab = () => {
                       {article.category}
                     </span>
                     {article.featured && (
-                      <span className="badge bg-warning text-dark font-bold d-flex align-items-center gap-1" style={{ fontSize: 9 }}>
-                        <Sparkles size={10} />
+                      <span className="badge bg-warning text-dark font-bold" style={{ fontSize: 9 }}>
                         Spotlight
                       </span>
                     )}
