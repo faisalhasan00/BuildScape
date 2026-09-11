@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCms } from '../../context/CmsContext';
+import { WhatsAppIcon } from '../Common/WhatsAppIcon';
 import { 
   ArrowLeft, 
   Calendar, 
@@ -10,7 +11,6 @@ import {
   User, 
   ChevronRight, 
   BookOpen, 
-  MessageSquare, 
   PhoneCall, 
   CheckCircle2, 
   ArrowRight,
@@ -114,7 +114,7 @@ export const BlogArticlePage = ({ article, onBack, onSelectArticle, onOpenConsul
                 className="blog-share-icon-btn" 
                 title="Share on WhatsApp"
               >
-                <MessageSquare size={14} />
+                <WhatsAppIcon size={14} color="#25d366" />
               </button>
               <button 
                 onClick={handleShareLinkedIn} 

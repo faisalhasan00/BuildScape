@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCms } from '../../context/CmsContext';
+import { WhatsAppIcon } from '../Common/WhatsAppIcon';
 import { 
-  MessageSquare, 
   Phone, 
   X, 
   Calendar, 
@@ -63,7 +63,7 @@ export const FloatingQuickConnect = () => {
               className="floating-btn-wa d-flex align-items-center justify-content-between px-3 py-2"
             >
               <div className="d-flex align-items-center gap-2">
-                <MessageSquare size={16} />
+                <WhatsAppIcon size={18} color="#25d366" />
                 <span style={{ fontSize: '13px', fontWeight: 600 }}>Chat on WhatsApp</span>
               </div>
               <span className="badge bg-success" style={{ fontSize: '10px' }}>Fast Reply</span>
@@ -102,7 +102,7 @@ export const FloatingQuickConnect = () => {
           title="Instant WhatsApp Chat"
           aria-label="Instant WhatsApp Chat"
         >
-          <MessageSquare size={22} />
+          <WhatsAppIcon size={25} color="#ffffff" />
         </button>
 
         {/* Expandable Action Badge */}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Logo } from '../Navbar/Logo';
 import { useCms } from '../../context/CmsContext';
-import { Phone, Smartphone, Mail, Facebook, Instagram, Linkedin, Youtube, MessageSquare, FileDown, ShieldCheck, Lock } from 'lucide-react';
+import { WhatsAppIcon } from '../Common/WhatsAppIcon';
+import { Phone, Smartphone, Mail, Facebook, Instagram, Linkedin, Youtube, FileDown, ShieldCheck, Lock } from 'lucide-react';
 
 export const Footer = ({ onOpenComingSoon }) => {
   const { cmsData, openAdminDashboard } = useCms();
@@ -69,9 +70,10 @@ export const Footer = ({ onOpenComingSoon }) => {
                 href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Buildscape%20Team%2C%20I%20would%20like%20to%20inquire%20about%20a%20project`}
                 target="_blank" 
                 rel="noreferrer"
-                className="whatsapp-quick-btn"
+                className="whatsapp-quick-btn d-inline-flex align-items-center gap-2"
               >
-                <MessageSquare size={14} /> WhatsApp Consultation
+                <WhatsAppIcon size={16} color="#25d366" /> 
+                <span>WhatsApp Consultation</span>
               </a>
             </div>
           </div>
