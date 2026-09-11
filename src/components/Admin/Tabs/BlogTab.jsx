@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useCms } from '../../../context/CmsContext';
+import { MediaPickerModal } from '../MediaPickerModal';
+import { optimizeImageFile } from '../../../utils/imageOptimizer';
 import { 
   BookOpen, 
   Plus, 
@@ -14,7 +16,9 @@ import {
   Tag, 
   Sparkles,
   CheckCircle,
-  FileText
+  FileText,
+  Upload,
+  FolderOpen
 } from 'lucide-react';
 
 export const BlogTab = () => {
@@ -25,6 +29,9 @@ export const BlogTab = () => {
   const [editingId, setEditingId] = useState(null);
   const [isCreating, setIsCreating] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
+  const [isMediaModalOpen, setIsMediaModalOpen] = useState(false);
+
+  const fileInputRef = useRef(null);
 
   const initialForm = {
     title: '',
@@ -68,6 +75,19 @@ export const BlogTab = () => {
     setIsCreating(false);
     setEditingId(null);
     setFormData(initialForm);
+  };
+
+  const handleDeviceUpload = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+
+    try {
+      const dataUrl = await optimizeImageFile(file);
+      setFormData(prev => ({ ...prev, image: dataUrl }));
+      showToast('success', 'Cover photo uploaded from device!');
+    } catch (err) {
+      showToast('error', 'Failed to upload photo: ' + err.message);
+    }
   };
 
   const handleSave = (e) => {
@@ -216,14 +236,41 @@ export const BlogTab = () => {
 
             <div className="form-group sm:col-span-2">
               <label className="form-label">Cover Image Path / URL</label>
-              <div className="flex gap-2">
+              <div className="flex gap-2 align-items-center flex-wrap">
                 <input
                   type="text"
-                  className="form-control"
-                  placeholder="/assets/images/hero1.jpg or https://..."
+                  className="form-control flex-grow-1"
+                  placeholder="/assets/images/hero1.jpg or data:image/..."
                   value={formData.image}
                   onChange={(e) => setFormData({ ...formData, image: e.target.value })}
                 />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                  className="btn btn-outline-warning btn-sm d-flex align-items-center gap-1"
+                  style={{ height: 38, whiteSpace: 'nowrap' }}
+                  title="Upload from computer / phone"
+                >
+                  <Upload size={14} />
+                  <span>Choose from Device</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsMediaModalOpen(true)}
+                  className="btn btn-warning text-dark btn-sm d-flex align-items-center gap-1 font-bold"
+                  style={{ height: 38, whiteSpace: 'nowrap' }}
+                  title="Pick from website photo library"
+                >
+                  <FolderOpen size={14} />
+                  <span>Choose from Gallery</span>
+                </button>
+                {formData.image && (
+                  <img
+                    src={formData.image}
+                    alt="Preview"
+                    style={{ width: 44, height: 38, objectFit: 'cover', borderRadius: 4, border: '1px solid #d4af37' }}
+                  />
+                )}
               </div>
             </div>
 
@@ -391,6 +438,27 @@ export const BlogTab = () => {
           </div>
         )}
       </div>
+
+      {/* Hidden File Input for Device Upload */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleDeviceUpload}
+        accept="image/*"
+        style={{ display: 'none' }}
+      />
+
+      {/* Media Picker Modal */}
+      <MediaPickerModal
+        isOpen={isMediaModalOpen}
+        isMulti={false}
+        title="Select Blog Article Cover Photo"
+        onClose={() => setIsMediaModalOpen(false)}
+        onSelectImage={(url) => {
+          setFormData(prev => ({ ...prev, image: url }));
+          showToast('success', 'Cover photo selected from gallery.');
+        }}
+      />
     </div>
   );
 };
