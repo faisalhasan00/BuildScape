@@ -7480,4 +7480,382 @@ a {
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
+/* ========================================================
+   CONSULTATION BOOKING LEAD-GENERATION SECTION
+   ======================================================== */
+.consultation-section {
+  background: #090d14;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 90px 0;
+  position: relative;
+}
+
+.consultation-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 35% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.consultation-form-card {
+  background: #0f1523;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.badge-form-active {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulseBeacon 1.8s infinite;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 15px #22c55e; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.form-label-custom {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+}
+
+.input-group-custom {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: #d4af37;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.form-control-custom {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 11px 14px 11px 42px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.form-control-custom:focus {
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.06);
+  outline: none;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+  color: #ffffff;
+}
+
+.form-control-custom::placeholder {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.select-custom {
+  appearance: none;
+  cursor: pointer;
+}
+
+.textarea-custom {
+  padding-left: 14px;
+  resize: vertical;
+}
+
+.btn-consultation-submit {
+  background: linear-gradient(135deg, #d4af37, #f59e0b);
+  color: #0b0f17;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+}
+
+.btn-consultation-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f1c40f, #d4af37);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.btn-consultation-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.consultation-guarantee-card {
+  background: linear-gradient(180deg, #111827 0%, #0d131f 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.badge-guarantee-tag {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #d4af37;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.guarantee-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.guarantee-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.point-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.point-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.direct-call-authority-box {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+}
+
+.direct-call-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   FLOATING QUICK-CONNECT WIDGET (WHATSAPP + CALL + QUOTE)
+   ======================================================== */
+.floating-quick-connect-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.floating-action-card {
+  background: #0f1523;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+  width: 310px;
+  backdrop-filter: blur(12px);
+  animation: floatCardIn 0.25s ease-out;
+}
+
+@keyframes floatCardIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.btn-close-floating {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.btn-close-floating:hover {
+  color: #ffffff !important;
+}
+
+.floating-btn-wa {
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #4ade80;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-btn-wa:hover {
+  background: #25d366;
+  color: #0b0f17;
+  transform: translateY(-2px);
+}
+
+.floating-btn-call {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-btn-call:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+.floating-btn-book {
+  background: linear-gradient(135deg, #d4af37, #f59e0b);
+  color: #0b0f17;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-btn-book:hover {
+  background: #f1c40f;
+  transform: translateY(-2px);
+}
+
+.floating-trigger-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.floating-wa-bubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.floating-wa-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+.floating-master-pill {
+  background: linear-gradient(135deg, #111827, #0b0f17);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+}
+
+.floating-master-pill:hover,
+.floating-master-pill.active {
+  border-color: #d4af37;
+  background: #1e293b;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+}
+
+.live-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: inline-block;
+}
+
+.live-status-dot.pulse {
+  animation: pulseBeacon 1.8s infinite;
+}
+
+@media (max-width: 767px) {
+  .consultation-form-card {
+    padding: 24px 20px;
+  }
+  .floating-quick-connect-container {
+    bottom: 18px;
+    right: 18px;
+  }
+  .floating-action-card {
+    width: calc(100vw - 36px);
+  }
+  .floating-pill-text {
+    font-size: 12px;
+  }
+}
+
+
 

@@ -12,6 +12,8 @@ import { WhyUsSection } from './components/WhyUs/WhyUsSection';
 import { BlogSection } from './components/Blog/BlogSection';
 import { BlogArticlePage } from './components/Blog/BlogArticlePage';
 import { TestimonialsSection } from './components/Testimonials/TestimonialsSection';
+import { ConsultationBookingSection } from './components/Consultation/ConsultationBookingSection';
+import { FloatingQuickConnect } from './components/FloatingWidget/FloatingQuickConnect';
 import { Footer } from './components/Footer/Footer';
 import { ComingSoonModal } from './components/ComingSoon/ComingSoonModal';
 import { AdminDashboardModal } from './components/Admin/AdminDashboardModal';
@@ -132,11 +134,17 @@ function MainApp() {
             {/* 12. Client Testimonials & Endorsements */}
             <TestimonialsSection onOpenComingSoon={handleOpenComingSoon} />
 
-            {/* 13. Footer & Office Maps */}
+            {/* 13. High-Converting Direct Lead Consultation Booking Section */}
+            <ConsultationBookingSection />
+
+            {/* 14. Footer & Office Maps */}
             <Footer onOpenComingSoon={handleOpenComingSoon} />
           </div>
         </>
       )}
+
+      {/* 24/7 Direct Floating Quick-Connect Widget (WhatsApp + Call) */}
+      <FloatingQuickConnect />
 
       {/* Interactive Consultation Modal */}
       <ComingSoonModal
