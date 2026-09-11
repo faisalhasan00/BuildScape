@@ -74,6 +74,15 @@ export const disciplines = [
 ];
 
 // --- FEATURED PORTFOLIO & GALLERY DATASET ---
+export const projectsCategories = [
+  { id: "all", label: "All Works" },
+  { id: "villas", label: "Luxury Villas" },
+  { id: "commercial", label: "Commercial Hubs" },
+  { id: "interiors", label: "Interior Architecture" },
+  { id: "farmhouses", label: "Country Farmhouses" },
+  { id: "turnkey", label: "Turnkey EPC" }
+];
+
 export const projectsGallery = [
   {
     id: 1,

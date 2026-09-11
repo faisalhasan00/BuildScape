@@ -291,18 +291,14 @@ export const CmsProvider = ({ children }) => {
     const newProject = {
       ...project,
       id: Date.now(),
-      gallery: project.gallery && project.gallery.length > 0 ? project.gallery : [project.image || '/assets/images/hero1.jpg']
+      gallery: project.gallery || [project.image || '/assets/images/hero1.jpg']
     };
     setCmsData((prev) => {
       const cur = prev.projectsGallery || defaultData.projectsGallery;
-      const items = Array.isArray(cur) ? cur : (cur.items || defaultData.projectsGallery.items);
-      const categories = cur.categories || defaultData.projectsGallery.categories;
+      const items = Array.isArray(cur) ? cur : (cur.items || defaultData.projectsGallery);
       return {
         ...prev,
-        projectsGallery: {
-          categories,
-          items: [newProject, ...items]
-        }
+        projectsGallery: [newProject, ...items]
       };
     });
     showToast('New project published to gallery.');
@@ -311,14 +307,10 @@ export const CmsProvider = ({ children }) => {
   const updateProject = (id, updatedProject) => {
     setCmsData((prev) => {
       const cur = prev.projectsGallery || defaultData.projectsGallery;
-      const items = Array.isArray(cur) ? cur : (cur.items || defaultData.projectsGallery.items);
-      const categories = cur.categories || defaultData.projectsGallery.categories;
+      const items = Array.isArray(cur) ? cur : (cur.items || defaultData.projectsGallery);
       return {
         ...prev,
-        projectsGallery: {
-          categories,
-          items: items.map((p) => p.id === id ? { ...p, ...updatedProject } : p)
-        }
+        projectsGallery: items.map((p) => p.id === id ? { ...p, ...updatedProject } : p)
       };
     });
     showToast('Project details updated.');
@@ -327,14 +319,10 @@ export const CmsProvider = ({ children }) => {
   const deleteProject = (id) => {
     setCmsData((prev) => {
       const cur = prev.projectsGallery || defaultData.projectsGallery;
-      const items = Array.isArray(cur) ? cur : (cur.items || defaultData.projectsGallery.items);
-      const categories = cur.categories || defaultData.projectsGallery.categories;
+      const items = Array.isArray(cur) ? cur : (cur.items || defaultData.projectsGallery);
       return {
         ...prev,
-        projectsGallery: {
-          categories,
-          items: items.filter((p) => p.id !== id)
-        }
+        projectsGallery: items.filter((p) => p.id !== id)
       };
     });
     showToast('Project removed from portfolio.');

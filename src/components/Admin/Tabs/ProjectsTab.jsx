@@ -17,7 +17,21 @@ import {
 
 export const ProjectsTab = () => {
   const { data, addGalleryItem, updateGalleryItem, deleteGalleryItem } = useCms();
-  const galleryData = data?.projectsGallery || { categories: [], items: [] };
+  const rawGallery = data?.projectsGallery;
+  const galleryCategories = (rawGallery && Array.isArray(rawGallery.categories) && rawGallery.categories.length > 0)
+    ? rawGallery.categories
+    : [
+        { id: "all", label: "All Works" },
+        { id: "villas", label: "Luxury Villas" },
+        { id: "commercial", label: "Commercial Hubs" },
+        { id: "interiors", label: "Interior Architecture" },
+        { id: "farmhouses", label: "Country Farmhouses" },
+        { id: "turnkey", label: "Turnkey EPC" }
+      ];
+
+  const galleryItems = Array.isArray(rawGallery) 
+    ? rawGallery 
+    : ((rawGallery && Array.isArray(rawGallery.items)) ? rawGallery.items : []);
 
   const [filterCat, setFilterCat] = useState('all');
   const [editingId, setEditingId] = useState(null);
@@ -87,8 +101,8 @@ export const ProjectsTab = () => {
   };
 
   const filteredItems = filterCat === 'all'
-    ? galleryData.items
-    : galleryData.items.filter(item => item.category === filterCat);
+    ? galleryItems
+    : galleryItems.filter(item => item.category === filterCat);
 
   return (
     <div className="admin-tab-pane">
@@ -146,7 +160,7 @@ export const ProjectsTab = () => {
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
               >
-                {galleryData.categories.filter(c => c.id !== 'all').map(c => (
+                {galleryCategories.filter(c => c.id !== 'all').map(c => (
                   <option key={c.id} value={c.id}>{c.label}</option>
                 ))}
               </select>
@@ -251,7 +265,7 @@ export const ProjectsTab = () => {
 
       {/* Category Tabs Filter */}
       <div className="admin-filter-bar mb-4">
-        {galleryData.categories.map((cat) => (
+        {galleryCategories.map((cat) => (
           <button
             key={cat.id}
             onClick={() => setFilterCat(cat.id)}

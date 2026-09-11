@@ -46,7 +46,9 @@ export const AdminDashboardModal = () => {
 
   const adminsList = cmsData.admins || [];
   const inquiriesList = cmsData.inquiries || [];
-  const galleryItems = (cmsData.projectsGallery && cmsData.projectsGallery.items) || [];
+  const galleryItems = Array.isArray(cmsData.projectsGallery)
+    ? cmsData.projectsGallery
+    : ((cmsData.projectsGallery && cmsData.projectsGallery.items) || []);
   const blogList = cmsData.blogArticles || [];
   const newInquiries = inquiriesList.filter((i) => i.status === 'New').length;
 
