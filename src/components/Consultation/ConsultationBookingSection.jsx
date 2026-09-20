@@ -369,7 +369,7 @@ export const ConsultationBookingSection = () => {
                     </div>
                     <div>
                       <h5 className="point-title text-white mb-1">Fixed-Rate BOQ (Zero Escalation)</h5>
-                      <p className="point-desc text-muted mb-0">
+                      <p className="point-desc text-light mb-0" style={{ fontSize: '14.5px', opacity: 0.85 }}>
                         Detailed itemized bill of quantities locked before civil excavation starts. No hidden surcharges or surprise material escalations.
                       </p>
                     </div>
@@ -381,7 +381,7 @@ export const ConsultationBookingSection = () => {
                     </div>
                     <div>
                       <h5 className="point-title text-white mb-1">10-Year Structural Integrity Warranty</h5>
-                      <p className="point-desc text-muted mb-0">
+                      <p className="point-desc text-light mb-0" style={{ fontSize: '14.5px', opacity: 0.85 }}>
                         RCC columns, beam schedules, and foundation footings backed by strict IS 456 compliance and structured post-handover warranty.
                       </p>
                     </div>
@@ -393,7 +393,7 @@ export const ConsultationBookingSection = () => {
                     </div>
                     <div>
                       <h5 className="point-title text-white mb-1">HMDA & GHMC Approval Assistance</h5>
-                      <p className="point-desc text-muted mb-0">
+                      <p className="point-desc text-light mb-0" style={{ fontSize: '14.5px', opacity: 0.85 }}>
                         Fast-tracked building sanction drawings, setback calculations, and layout compliance with town planning authorities.
                       </p>
                     </div>
