@@ -125,7 +125,7 @@ export const ConsultationBookingSection = () => {
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-9 col-md-11">
             <span className="section-subtitle">DIRECT BUSINESS & SITE FEASIBILITY INTAKE</span>
-            <h2 className="section-title soudha mb-3">
+            <h2 className="section-title text-white soudha mb-3">
               Book a Free <span>Architectural & Site Consultation</span>
             </h2>
             <p className="section-lead-text mx-auto" style={{ maxWidth: '780px' }}>
