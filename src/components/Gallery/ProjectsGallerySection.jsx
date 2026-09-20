@@ -26,7 +26,7 @@ import {
 
 const INITIAL_VISIBLE_COUNT = 6; 
 
-export const ProjectsGallerySection = () => {
+export const ProjectsGallerySection = ({ onViewCaseStudy }) => {
   const { cmsData } = useCms();
   const rawGallery = cmsData?.projectsGallery;
   const galleryCategories = (rawGallery && rawGallery.categories) || [
@@ -204,7 +204,7 @@ export const ProjectsGallerySection = () => {
                 <div 
                   key={project.id} 
                   className="gallery-card group"
-                  onClick={() => handleOpenModal(project)}
+                  onClick={() => onViewCaseStudy ? onViewCaseStudy(project) : handleOpenModal(project)}
                 >
                   <div className="gallery-image-wrapper">
                     <img 
@@ -228,7 +228,11 @@ export const ProjectsGallerySection = () => {
                       </div>
 
                       <div className="gallery-overlay-bottom">
-                        <button className="gallery-quick-view-btn" aria-label="View Project Details">
+                        <button
+                          className="gallery-quick-view-btn"
+                          aria-label="View Project Case Study"
+                          onClick={(e) => { e.stopPropagation(); onViewCaseStudy ? onViewCaseStudy(project) : handleOpenModal(project); }}
+                        >
                           <Eye size={15} />
                           <span>View Case Study</span>
                         </button>
@@ -254,7 +258,11 @@ export const ProjectsGallerySection = () => {
 
                     <div className="gallery-card-footer">
                       <span className="client-tag"><User size={12} /> {project.client}</span>
-                      <span className="view-details-arrow">
+                      <span
+                        className="view-details-arrow"
+                        onClick={(e) => { e.stopPropagation(); onViewCaseStudy ? onViewCaseStudy(project) : handleOpenModal(project); }}
+                        style={{ cursor: 'pointer' }}
+                      >
                         <span>Inspect</span>
                         <ArrowUpRight size={15} />
                       </span>

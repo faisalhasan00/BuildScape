@@ -67,12 +67,12 @@ export const Logo = ({ variant = 'light', height = 54, showText = true }) => {
                 fontSize: height >= 70 ? '26px' : '22px', 
                 fontWeight: 700, 
                 letterSpacing: '2.5px', 
-                color: isDarkNavbar ? '#ffffff' : '#111111',
+                color: '#d4af37',
                 textTransform: 'uppercase',
                 transition: 'color 0.3s ease'
               }}
             >
-              BUILD<span style={{ color: '#d4af37' }}>SCAPE</span>
+              <span style={{ color: '#d4af37' }}>BUILDSCAPE</span>
             </span>
             <span 
               className="brand-secondary-name"
@@ -81,7 +81,7 @@ export const Logo = ({ variant = 'light', height = 54, showText = true }) => {
                 fontSize: height >= 70 ? '11px' : '9.5px', 
                 fontWeight: 600, 
                 letterSpacing: '2px', 
-                color: '#d4af37',
+                color: '#111111',
                 textTransform: 'uppercase',
                 marginTop: '2px'
               }}

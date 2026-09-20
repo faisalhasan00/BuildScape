@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { HeroSlider } from './components/Hero/HeroSlider';
 import { AboutSection } from './components/About/AboutSection';
 import { ProjectsGallerySection } from './components/Gallery/ProjectsGallerySection';
+import { ProjectCaseStudyPage } from './components/Gallery/ProjectCaseStudyPage';
 import { CapabilitiesSection } from './components/Capabilities/CapabilitiesSection';
 import { TypologiesSection } from './components/Typologies/TypologiesSection';
 import { WorkflowSection } from './components/Workflow/WorkflowSection';
@@ -20,6 +21,7 @@ import { AdminDashboardModal } from './components/Admin/AdminDashboardModal';
 
 function MainApp() {
   const [currentArticle, setCurrentArticle] = useState(null);
+  const [currentProject, setCurrentProject] = useState(null);
   const [modalState, setModalState] = useState({
     isOpen: false,
     title: ''
@@ -53,8 +55,9 @@ function MainApp() {
   };
 
   const handleNavigate = (targetId) => {
-    if (currentArticle) {
+    if (currentArticle || currentProject) {
       setCurrentArticle(null);
+      setCurrentProject(null);
       setTimeout(() => {
         if (targetId === 'home') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -85,6 +88,18 @@ function MainApp() {
     }, 100);
   };
 
+  const handleBackToPortfolio = () => {
+    setCurrentProject(null);
+    setTimeout(() => {
+      const el = document.getElementById('gallery');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <div className="app-container">
       {/* Global Background Watermark — hidden in hero, visible after scroll */}
@@ -99,7 +114,21 @@ function MainApp() {
         onNavigate={handleNavigate}
       />
       
-      {currentArticle ? (
+      {currentProject ? (
+        /* Dedicated Full-Page Project Case Study View */
+        <div className="article-page-view-container">
+          <ProjectCaseStudyPage
+            project={currentProject}
+            onBack={handleBackToPortfolio}
+            onSelectProject={(proj) => {
+              setCurrentProject(proj);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onOpenConsultation={handleOpenComingSoon}
+          />
+          <Footer onOpenComingSoon={handleOpenComingSoon} />
+        </div>
+      ) : currentArticle ? (
         /* Dedicated Full-Page Article Reader View */
         <div className="article-page-view-container">
           <BlogArticlePage
@@ -130,7 +159,12 @@ function MainApp() {
             <AboutSection onOpenComingSoon={handleOpenComingSoon} />
 
             {/* 2. Curated Live Architectural Portfolio & Projects Gallery */}
-            <ProjectsGallerySection />
+            <ProjectsGallerySection
+              onViewCaseStudy={(proj) => {
+                setCurrentProject(proj);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            />
 
             {/* 3. 3 Core Integrated Solution Pillars & Services */}
             <CapabilitiesSection onOpenComingSoon={handleOpenComingSoon} />
