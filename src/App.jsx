@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CmsProvider } from './context/CmsContext';
 import { Navbar } from './components/Navbar/Navbar';
 import { HeroSlider } from './components/Hero/HeroSlider';
@@ -24,6 +24,19 @@ function MainApp() {
     isOpen: false,
     title: ''
   });
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById('home');
+      if (hero) {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        setPastHero(heroBottom <= 0);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleOpenComingSoon = (title) => {
     setModalState({
@@ -74,6 +87,12 @@ function MainApp() {
 
   return (
     <div className="app-container">
+      {/* Global Background Watermark — hidden in hero, visible after scroll */}
+      <div
+        aria-hidden="true"
+        className={`global-watermark${pastHero ? ' visible' : ''}`}
+      />
+
       {/* Dynamic Header */}
       <Navbar 
         onOpenComingSoon={handleOpenComingSoon} 
