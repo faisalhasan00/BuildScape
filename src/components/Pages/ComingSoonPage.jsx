@@ -173,7 +173,7 @@ export const ComingSoonPage = ({ activeTab = 'home', onTabChange, onToggleFullPr
                     <input 
                       type="tel" 
                       className="form-control custom-input" 
-                      placeholder="+91 99999999999"
+                      placeholder="+91 9966663838"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}

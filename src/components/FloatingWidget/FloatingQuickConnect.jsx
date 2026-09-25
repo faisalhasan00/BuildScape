@@ -7,8 +7,8 @@ export const FloatingQuickConnect = () => {
   const { cmsData } = useCms();
   const siteConfig = cmsData?.siteConfig || {};
 
-  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || (siteConfig.phoneNumbers && siteConfig.phoneNumbers[0]) || "040-45524579";
-  const waNumber = siteConfig.whatsappNumber || "9199999999999";
+  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || (siteConfig.phoneNumbers && siteConfig.phoneNumbers[0]) || "+91-9966663838";
+  const waNumber = siteConfig.whatsappNumber || "919966663838";
 
   const handleOpenWhatsApp = () => {
     const text = encodeURIComponent("Hello Buildscape Team, I would like to inquire about an architectural/construction project in Telangana.");

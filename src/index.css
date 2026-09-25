@@ -1073,7 +1073,7 @@ a {
 
 .main-footer p {
   font-size: 14px;
-  color: #999999;
+  color: #999999 !important;
   line-height: 1.8;
 }
 

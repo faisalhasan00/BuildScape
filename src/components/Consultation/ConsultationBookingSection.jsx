@@ -77,7 +77,7 @@ export const ConsultationBookingSection = () => {
 
     // Optional WhatsApp Sync
     if (formData.syncWhatsApp) {
-      const waNumber = siteConfig.whatsappNumber || '9199999999999';
+      const waNumber = siteConfig.whatsappNumber || '919966663838';
       const waText = encodeURIComponent(
         `*New Architectural & Site Consultation Request*\n` +
         `-----------------------------------------\n` +

@@ -173,7 +173,7 @@ export const ProfileTab = () => {
           </div>
 
           <div className="form-group mb-3">
-            <label className="admin-label">WhatsApp Number (e.g. 919999999999)</label>
+            <label className="admin-label">WhatsApp Number (e.g. 919966663838)</label>
             <input
               type="text"
               name="whatsappNumber"

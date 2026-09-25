@@ -110,9 +110,24 @@ const getInitialCmsData = () => {
         });
       }
 
+      let normSiteConfig = { ...defaultData.siteConfig, ...(parsed.siteConfig || {}) };
+      if (
+        normSiteConfig.phoneNumbers &&
+        normSiteConfig.phoneNumbers.some((p) => p.includes('999999999'))
+      ) {
+        normSiteConfig.phoneNumbers = defaultData.siteConfig.phoneNumbers;
+      }
+      if (
+        !normSiteConfig.whatsappNumber ||
+        normSiteConfig.whatsappNumber.includes('999999999')
+      ) {
+        normSiteConfig.whatsappNumber = defaultData.siteConfig.whatsappNumber;
+      }
+
       return {
         ...defaults,
         ...parsed,
+        siteConfig: normSiteConfig,
         projectsGallery: normGallery,
         blogArticles: normBlog,
         technicalBlueprints: (parsed.technicalBlueprints && parsed.technicalBlueprints.length > 0)

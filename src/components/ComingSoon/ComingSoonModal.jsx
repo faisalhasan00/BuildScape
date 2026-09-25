@@ -34,7 +34,7 @@ export const ComingSoonModal = ({ isOpen, onClose, pageTitle = 'Consultation' })
     }, 2800);
   };
 
-  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || "040-45524579";
+  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || "+91-9966663838";
 
   return (
     <div className="coming-soon-backdrop" onClick={onClose}>

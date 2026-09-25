@@ -13,9 +13,9 @@ export const siteConfig = {
   state: "Telangana",
   pincode: "509216",
   address: "Buildscape Corporate Office, Main Road, Near Flyover, Shadnagar, Ranga Reddy District, Telangana — 509216, India",
-  phoneNumbers: ["040-45524579", "+91-99999999999", "+91-99999999999"],
+  phoneNumbers: ["040-45524579", "+91-9966663838"],
   email: "info@buildscape.in",
-  whatsappNumber: "9199999999999",
+  whatsappNumber: "919966663838",
   mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30526.47172088151!2d78.1884!3d17.0691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3abca1b009e46a77%3A0x6b4fb7c4a2428511!2sShadnagar%2C%20Telangana%20509216!5e0!3m2!1sen!2sin!4v1782528000000!5m2!1sen!2sin",
   
   aboutSummary: "Buildscape Architects & Engineers is a multidisciplinary architectural, structural engineering, interior architecture, and turnkey construction firm committed to transforming bold ideas into exceptional built realities. We believe every project is far more than a physical structure—it is an enduring reflection of our clients' aspirations, lifestyle, brand identity, and long-term vision.",

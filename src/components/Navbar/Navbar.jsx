@@ -64,7 +64,7 @@ export const Navbar = ({ onOpenComingSoon, onNavigate }) => {
     }
   };
 
-  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || "040-45524579";
+  const primaryPhone = (siteConfig.phoneNumbers && siteConfig.phoneNumbers[1]) || "+91-9966663838";
 
   return (
     <header className={`custom-navbar-header ${isScrolled ? 'header-scrolled' : ''}`}>
